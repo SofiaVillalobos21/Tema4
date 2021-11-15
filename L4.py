@@ -44,6 +44,10 @@ plt.xlabel('$t$')
 plt.ylabel('$x_i(t)$')
 plt.show()
 
+# Parte b) con Omega (la frecuencia) y Theta (Z) constante		    
+
+Theta = np.pi/2		       
+	       
 # T valores de desplazamiento tau
 desplazamiento = np.arange(T)
 taus = desplazamiento/t_final
@@ -71,8 +75,6 @@ plt.ylabel(r'$R_{XX}(\tau)$')
 plt.legend()
 plt.show()
 		    
-# Parte b) con Omega (la frecuencia) y Theta (Z) constante		    
-
-Theta = np.pi/2		    
+	    
 		    
 		    
