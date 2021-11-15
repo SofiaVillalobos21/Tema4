@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 # Variables aleatorias A y Z
 vaA = stats.norm(5, np.sqrt(0.2))
 vaZ = stats.uniform(0, np.pi/2)
+vaT= stats.uniform(2*np.pi*59.1, 2*np.pi*60.1)
 
 # Creación del vector de tiempo
 T = 100			# número de elementos
@@ -23,7 +24,8 @@ X_t = np.empty((N, len(t)))	# N funciones del tiempo x(t) con T puntos
 for i in range(N):
 	A = vaA.rvs()
 	Z = vaZ.rvs()
-	x_t = A * np.cos(np.pi*t + Z)
+	T = vaT.rvs()
+	x_t = A * np.cos(T*t + Z)
 	X_t[i,:] = x_t
 	plt.plot(t, x_t)
 
