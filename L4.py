@@ -61,7 +61,7 @@ for n in range(N):
 	plt.plot(taus, corr[n,:])
 
 # Valor teórico de correlación
-Rxx = (10/np.pi) * ( np.cos(T*t) - np.sin(T*t)
+Rxx = (10/np.pi) * ( np.cos(W*t) - np.sin(W*t)
 
 # Gráficas de correlación para cada realización y la
 plt.plot(taus, Rxx, '-.', lw=4, label='Correlación teórica')
