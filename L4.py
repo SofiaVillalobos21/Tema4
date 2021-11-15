@@ -70,3 +70,9 @@ plt.xlabel(r'$\tau$')
 plt.ylabel(r'$R_{XX}(\tau)$')
 plt.legend()
 plt.show()
+		    
+# Parte b) con Omega (la frecuencia) y Theta (Z) constante		    
+
+Theta = np.pi/2		    
+		    
+		    
