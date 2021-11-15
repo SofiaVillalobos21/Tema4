@@ -7,12 +7,11 @@ from scipy import stats
 import matplotlib.pyplot as plt
 
 # Parte a) con Omega (la frecuencia) constante
+W = 2*np.pi*60
 
 # Variables aleatorias C, T y Z
 vaC = stats.norm(5, np.sqrt(0.2))
 vaZ = stats.uniform(0, np.pi/2)
-
-W=2*np.pi*60
 
 # Creación del vector de tiempo
 T = 100			# número de elementos
