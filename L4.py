@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 # Variables aleatorias A y Z
 vaA = stats.norm(5, np.sqrt(0.2))
-vaZ = stats.uniform(2*np.pi(59.1), 2*np.pi(60.1))
+vaZ = stats.uniform(0, np.pi/2)
 
 # Creación del vector de tiempo
 T = 100			# número de elementos
