@@ -20,7 +20,7 @@ t = np.linspace(0, t_final, T)
 N = 10
 X_t = np.empty((N, len(t)))	# N funciones del tiempo x(t) con T puntos
 
-# Creación de las muestras del proceso x(t) (A y Z independientes)
+# Creación de las muestras del proceso x(t) (C Z independientes)
 for i in range(N):
 	C = vaC.rvs()
 	Z = vaZ.rvs()
@@ -60,7 +60,7 @@ for n in range(N):
 	plt.plot(taus, corr[n,:])
 
 # Valor teórico de correlación
-Rxx = 19/2 * np.cos(np.pi*taus)
+Rxx = (10/np.pi) * ( np.cos(T*t) - np.sin(T*t)
 
 # Gráficas de correlación para cada realización y la
 plt.plot(taus, Rxx, '-.', lw=4, label='Correlación teórica')
