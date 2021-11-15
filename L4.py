@@ -6,10 +6,13 @@ import numpy as np
 from scipy import stats
 import matplotlib.pyplot as plt
 
+# Parte a) con Omega (la frecuencia) constante
+
 # Variables aleatorias C, T y Z
 vaC = stats.norm(5, np.sqrt(0.2))
 vaZ = stats.uniform(0, np.pi/2)
-vaT= stats.uniform(2*np.pi*59.1, 2*np.pi*60.1)
+
+W=2*np.pi*60
 
 # Creación del vector de tiempo
 T = 100			# número de elementos
@@ -24,8 +27,7 @@ X_t = np.empty((N, len(t)))	# N funciones del tiempo x(t) con T puntos
 for i in range(N):
 	C = vaC.rvs()
 	Z = vaZ.rvs()
-	T = vaT.rvs()
-	x_t = C * np.cos(T*t + Z)
+	x_t = C * np.cos(W*t + Z)
 	X_t[i,:] = x_t
 	plt.plot(t, x_t)
 
