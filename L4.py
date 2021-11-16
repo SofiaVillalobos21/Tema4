@@ -1,4 +1,3 @@
-# Base para la solución del Laboratorio 4
 
 # Los parámetros T, t_final y N son elegidos arbitrariamente
 
