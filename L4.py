@@ -35,7 +35,7 @@ P = [np.mean(X_t[:,i]) for i in range(len(t))]
 plt.plot(t, P, lw=6)
 
 # Graficar el resultado teórico del valor esperado
-E = 10/np.pi *( np.cos(W*t) - np.sin(W*t)
+E = 10/np.pi *( np.cos(W*t) - np.sin(W*t))
 plt.plot(t, E, '-.', lw=4)
 
 # Mostrar las realizaciones, y su promedio calculado y teórico
@@ -72,7 +72,7 @@ plt.figure()
 
 # Cálculo de correlación para cada valor de tau
 for n in range(N):
-	for i, tau in enumerate(desplazamiento):
+	for i, tau in enumerate(desplazamiento2):
 		corr2[n, i] = np.correlate(X_t2[n,:], np.roll(X_t2[n,:], tau))/T
 	plt.plot(taus2, corr2[n,:])
 
