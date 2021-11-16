@@ -45,15 +45,27 @@ plt.ylabel('$x_i(t)$')
 plt.show()
 
 # Parte b) con Omega (la frecuencia) y Theta (Z) constante		    
-
 Theta = np.pi/2		       
 	       
+# Inicialización del proceso aleatorio X(t) con N realizaciones
+	       
+X_t2 = np.empty((N, len(t)))	# N funciones del tiempo x(t) con T puntos
+
+for i in range(N):
+	C2 = vaC.rvs()
+	x_t2 = C2 * np.cos(W*t + Theta)
+	X_t2[i,:] = x_t2	       
+
+# Promedio de las N realizaciones en cada instante (cada punto en t)
+P2 = [np.mean(X_t2[:,i]) for i in range(len(t))]
+	       
 # T valores de desplazamiento tau
-desplazamiento = np.arange(T)
-taus = desplazamiento/t_final
+desplazamiento2 = np.arange(T)
+taus2 = desplazamiento2/t_final	       
+
 
 # Inicialización de matriz de valores de correlación para las N funciones
-corr = np.empty((N, len(desplazamiento)))
+corr2 = np.empty((N, len(desplazamiento2)))
 
 # Nueva figura para la autocorrelación
 plt.figure()
@@ -61,20 +73,16 @@ plt.figure()
 # Cálculo de correlación para cada valor de tau
 for n in range(N):
 	for i, tau in enumerate(desplazamiento):
-		corr[n, i] = np.correlate(X_t[n,:], np.roll(X_t[n,:], tau))/T
-	plt.plot(taus, corr[n,:])
+		corr2[n, i] = np.correlate(X_t2[n,:], np.roll(X_t2[n,:], tau))/T
+	plt.plot(taus2, corr2[n,:])
 
 # Valor teórico de correlación
-Rxx = (10/np.pi) * ( np.cos(W*t) - np.sin(W*t)
+Rxx2 = 25.2 * np.cos(W*t+Theta)*np.cos(W*(t+taus2)+Theta)
 
 # Gráficas de correlación para cada realización y la
-plt.plot(taus, Rxx, '-.', lw=4, label='Correlación teórica')
+plt.plot(taus2, Rxx2, '-.', lw=4, label='Correlación teórica')
 plt.title('Funciones de autocorrelación de las realizaciones del proceso')
 plt.xlabel(r'$\tau$')
 plt.ylabel(r'$R_{XX}(\tau)$')
 plt.legend()
-plt.show()
-		    
-	    
-		    
-		    
+plt.show()  	    
